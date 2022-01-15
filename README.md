@@ -33,7 +33,7 @@
 - No usar el sdk para .NET de Mercadolibre (https://github.com/mercadolibre/net-sdk ).
 - Proveer el código fuente, el script para generar la base de datos y popularla con datos de prueba. Asimismo se deberán proveer las instrucciones para poder ejecutar la aplicación y los servicios.
 
-##Implementación de la solución
+## Implementación de la solución
 
 Los ejercicios fueron resueltos usando .Net Core 3.1 y SQL Server 2014 dentro de la solucion ***NubimetricsChallenge***
 
