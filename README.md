@@ -1,13 +1,13 @@
-##Nubimetrics Challenge
-1. **Crear una aplicaciÛn (usando framework .Net 4.7 o .Net Core 2.2 en adelante) del tipo REST Web Api que exponga 2 endpoints:**
-	- Un endpoint "paÌses" que sea llamado con los par·metros del paÌs ej:
-    http://localhost:8080/MyRestfulApp/Paises/PAIS, donde PAIS podrÌa ser "AR", "BR", "CO".
-    Para los par·metros BR y CO, hacer que el endpoint de una respuesta que sea error 401 unauthorized de http.
-    Para el par·metro AR el endpoint deber· consumir la informaciÛn del paÌs desde el servicio externo: https://api.mercadolibre.com/classified_locations/countries/AR
+## Nubimetrics Challenge
+1. **Crear una aplicaci√≥n (usando framework .Net 4.7 o .Net Core 2.2 en adelante) del tipo REST Web Api que exponga 2 endpoints:**
+	- Un endpoint "pa√≠ses" que sea llamado con los par√°metros del pa√≠s ej:
+    http://localhost:8080/MyRestfulApp/Paises/PAIS, donde PAIS podr√≠a ser "AR", "BR", "CO".
+    Para los par√°metros BR y CO, hacer que el endpoint de una respuesta que sea error 401 unauthorized de http.
+    Para el par√°metro AR el endpoint deber√° consumir la informaci√≥n del pa√≠s desde el servicio externo: https://api.mercadolibre.com/classified_locations/countries/AR
 
-	- Implementar otro endpoint ìbusquedaî que sea llamado con un par·metro de tipo string ej: http://localhost:8080/MyRestfulApp/busqueda/xxx (donde xxx es el texto a buscar ej: iphone)
-	El endpoint deber· consumir la informaciÛn desde el siguiente servicio externo: https://api.mercadolibre.com/sites/MLA/search?q=xxx
-	Este endpoint deber· devolver el objeto como lo devuelve el servicio externo, pero en el array ìresultsî solo incluir los fields: ìid, site_id, title, price, seller.id, permalinkî.
+	- Implementar otro endpoint ‚Äúbusqueda‚Äù que sea llamado con un par√°metro de tipo string ej: http://localhost:8080/MyRestfulApp/busqueda/xxx (donde xxx es el texto a buscar ej: iphone)
+	El endpoint deber√° consumir la informaci√≥n desde el siguiente servicio externo: https://api.mercadolibre.com/sites/MLA/search?q=xxx
+	Este endpoint deber√° devolver el objeto como lo devuelve el servicio externo, pero en el array ‚Äúresults‚Äù solo incluir los fields: ‚Äúid, site_id, title, price, seller.id, permalink‚Äù.
 	
 	- Crear un endpoint "usuarios" que devuelva todos los usuarios de una tabla "User" con los campos, id, nombre, apellido, email, password. Para ello crear la base de datos, la tabla y popularla con un script.
 	Crear los endpoints necesarios en la misma api rest para el ABM de usuarios.
@@ -17,27 +17,27 @@
 	- https://api.mercadolibre.com/currencies/
 	- https://api.mercadolibre.com/currency_conversions/search?from=XXX&to=USD
 
-	La idea es que se almacene en disco un json con la estructura que devuelve el endpointìcurrenciesî pero que adicionalmente incluya una nueva property ìtodolarî con el resultado del segundo endpoint.
-	El endpoint ìcurrency_conversionsî toma como par·metro en ìfromî el id de moneda correspondiente a un paÌs (que devuelve el primer endpoint ìcurrenciesî).
-	Adicionalmente la misma aplicaciÛn tiene que almacenar en disco un archivo csv con cada uno de los resultados obtenidos de ìcurrency_conversionsî, es decir debe almacenar sÛlo los resultados obtenidos de la property ìratioî (Ej: 0.0147275,0.013651,0.727565).
+	La idea es que se almacene en disco un json con la estructura que devuelve el endpoint‚Äúcurrencies‚Äù pero que adicionalmente incluya una nueva property ‚Äútodolar‚Äù con el resultado del segundo endpoint.
+	El endpoint ‚Äúcurrency_conversions‚Äù toma como par√°metro en ‚Äúfrom‚Äù el id de moneda correspondiente a un pa√≠s (que devuelve el primer endpoint ‚Äúcurrencies‚Äù).
+	Adicionalmente la misma aplicaci√≥n tiene que almacenar en disco un archivo csv con cada uno de los resultados obtenidos de ‚Äúcurrency_conversions‚Äù, es decir debe almacenar s√≥lo los resultados obtenidos de la property ‚Äúratio‚Äù (Ej: 0.0147275,0.013651,0.727565).
 	
 	
 **Subir los proyectos a un mismo repositorio de github.**
 
-####Bonus points
+#### Bonus points
 -  Crear unit tests.
--  CÛdigo limpio y ordenado asÌ como separaciÛn de responsabilidades.
--  Uso de patrones de diseÒo y explicaciÛn del uso de los mismos.
+-  C√≥digo limpio y ordenado as√≠ como separaci√≥n de responsabilidades.
+-  Uso de patrones de dise√±o y explicaci√≥n del uso de los mismos.
 
-####Notas
+#### Notas
 - No usar el sdk para .NET de Mercadolibre (https://github.com/mercadolibre/net-sdk ).
-- Proveer el cÛdigo fuente, el script para generar la base de datos y popularla con datos de prueba. Asimismo se deber·n proveer las instrucciones para poder ejecutar la aplicaciÛn y los servicios.
+- Proveer el c√≥digo fuente, el script para generar la base de datos y popularla con datos de prueba. Asimismo se deber√°n proveer las instrucciones para poder ejecutar la aplicaci√≥n y los servicios.
 
-##ImplementaciÛn de la soluciÛn
+##Implementaci√≥n de la soluci√≥n
 
 Los ejercicios fueron resueltos usando .Net Core 3.1 y SQL Server 2014 dentro de la solucion ***NubimetricsChallenge***
 
-Las ˙nicas librerias utilizadas son:
+Las √∫nicas librerias utilizadas son:
 
    - Microsoft.EntityFrameworkCore.SqlServer Version="5.0.13"
    - Newtonsoft.Json" Version="13.0.1"
@@ -59,25 +59,25 @@ Las ˙nicas librerias utilizadas son:
 
     - Implementado en Controlador **CurrenciesController** : GET https://localhost:44320/api/currencies Genera como salida los archivos **Currencies.json** y **CurrencyConvertions.csv**
     
-##InstalaciÛn
+## Instalaci√≥n
 
    - Clonar el repositorio o descargar todo el contenido a una carpeta local.
    - Ejecutar el script *Creacion de DB restApi Inserts inciales.sql* en un Servidor SQL Server Version 12 o superior.
-   El mismo crear· la base de datos de nombre **RestAPi**  el usuario SQL de Login **restApi** y password ***restApi***  y la tabla **Users** e insertara 3 usuarios.
+   El mismo crear√° la base de datos de nombre **RestAPi**  el usuario SQL de Login **restApi** y password ***restApi***  y la tabla **Users** e insertara 3 usuarios.
 
-##ConfiguraciÛn
+## Configuraci√≥n
 
    - Es necesario en el proyecto ***NubimetricsChallenge*** ajustar el archivo **appsettings.json**
    se debe cambiar el data source del "ConnectionStrings": { "Conexion": "data source=localhost; initial catalog=RestApi; user id=restApi; password=restApi; MultipleActiveResultSets=true " }, reemplazando **localhost** por el servidor SQL que corresponda.
 
-##EjecuciÛn
+## Ejecuci√≥n
 
    Se realizaron las pruebas utilizando Visual Studio 2019, ejecutando cada proyecto dentro del IIS Express integrado.
 
-##Testing
+## Testing
 
    - Se incluye un proyecto de Postman para realizar las pruebas de todos los endpoints. 
    **Nubimetrics.postman_collection.json**
     
-##Linkedin
+## Linkedin
 https://www.linkedin.com/in/daniel-deve/
